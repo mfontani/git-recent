@@ -67,7 +67,13 @@ sub max_length {
 }
 
 sub branches_from_reflog {
-    my @lines = qx!git reflog!;
+    my @lines = qx!git reflog 2>&1!;
+
+    if (scalar @lines == 1 && $lines[0] =~ m!Fatal!) {
+        warn $lines[0];
+        exit 1;
+    }
+
     my %exists;
     my %branches;
     my @recent;
