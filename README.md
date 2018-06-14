@@ -32,8 +32,8 @@ Useful as a Git alias in `~/.gitconfig`, used in conjunction with `fzf`.
 `cor` here stands for "check out recent":
 
     [alias]
-      cor          = !git checkout $( git recent 0    | fzf +s | awk '{ print $1 }' )
-      corsha       = !git checkout $( git recent 0 -s | fzf +s | awk '{ print $1 }' )
+      cor          = !git checkout $( git recent 0 -s | fzf +s | awk '{ print $1 }' )
+      corsha       = !git checkout $( git recent 0    | fzf +s | awk '{ print $1 }' )
 
 # Author
 
