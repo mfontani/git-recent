@@ -42,10 +42,10 @@ our $VERSION = '0.2';
     @branches = grep { $_->[0] !~ /^[a-f0-9]{40}$/ } @branches
         if $opts{s};
 
-    @branches = grep { length $_->[0] } @branches;
-
     @branches = @branches[0..$HOW_MANY-1]
         if $HOW_MANY;
+
+    @branches = grep { defined && length $_->[0] } @branches;
 
     if (!$opts{S}) {
         my $max = max_length(map { $_->[0] } @branches) + 1;
