@@ -47,6 +47,8 @@ our $VERSION = '0.2';
 
     @branches = grep { defined && length $_->[0] } @branches;
 
+    exit 0 if !@branches;
+
     if (!$opts{S}) {
         my $max = max_length(map { $_->[0] } @branches) + 1;
         printf "%-${max}s%s\n", @$_ for @branches;
