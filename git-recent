@@ -39,7 +39,7 @@ our $VERSION = '0.2';
 
     @branches = with_all_branches(@branches) if !$opts{A};
 
-    @branches = grep { $_->[0] !~ /^[a-f0-9]{40}$/ } @branches
+    @branches = grep { $_->[0] !~ /^[a-f0-9]{11,40}$/ } @branches
         if $opts{s};
 
     @branches = @branches[0..$HOW_MANY-1]
